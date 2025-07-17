@@ -18,6 +18,22 @@ y = df['Species'].values
 st.write("Sample Dataset:")
 st.write(df.head(5))
 
+sns.scatterplot(
+    data=df,
+    x="SepalLengthCm",
+    y="SepalWidthCm",
+    hue="Species",
+    style="Species",
+    s=60,        # marker size
+    alpha=0.8    # transparency
+)
+plt.title("Iris Dataset: Sepal Length vs. Sepal Width")
+plt.xlabel("Sepal Length (cm)")
+plt.ylabel("Sepal Width (cm)")
+plt.legend(title="Species")
+plt.tight_layout()
+plt.show()
+
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 clf = KNeighborsClassifier(n_neighbors=3)
