@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 st.title('This is ML App')
 st.write('Classification Model on IRIS Dataset')
