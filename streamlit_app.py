@@ -11,8 +11,9 @@ from sklearn.metrics import accuracy_score
 
 url = "https://raw.githubusercontent.com/vmakena-ds/vm-ml-webapp/refs/heads/master/Iris.csv"
 df = pd.read_csv(url)
-X = df[['sepal_length','sepal_width','petal_length','petal_width']].values
-y = df['species'].values
+X = df[['SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidthCm']].values
+y = df['Species'].values
+
 
 st.write("Sample Dataset:")
 st.write(df.head(5))
