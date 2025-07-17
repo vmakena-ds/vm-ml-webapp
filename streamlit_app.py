@@ -25,8 +25,8 @@ st.scatter_chart(
     data=df,
     x="SepalLengthCm",
     y="SepalWidthCm",
-    color="Species",     # category-based color encoding :contentReference[oaicite:1]{index=1}
-    size=40,             # fixed circle size
+    color="Species",     
+    size=60,             
     use_container_width=True
 )
 
