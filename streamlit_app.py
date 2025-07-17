@@ -1,4 +1,25 @@
 import streamlit as st
 
 st.title('This is ML App')
-st.write('ML Model Predictions')
+st.write('Classification Model on IRIS Dataset')
+
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score
+
+url = "https://raw.githubusercontent.com/vmakena-ds/vm-ml-webapp/refs/heads/master/Iris.csv"
+df = pd.read_csv(url)
+X = df[['sepal_length','sepal_width','petal_length','petal_width']].values
+y = df['species'].values
+
+st.write("Sample Dataset:")
+st.write(df.head(5))
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+clf = KNeighborsClassifier(n_neighbors=3)
+clf.fit(X_train, y_train)
+y_pred = clf.predict(X_test)
+
+print("Accuracy:", accuracy_score(y_test, y_pred))
