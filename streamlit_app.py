@@ -16,19 +16,20 @@ df = pd.read_csv(url)
 X = df[['SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidthCm']].values
 y = df['Species'].values
 
+with st.expander("Dataset Sample"):
+    st.write("Sample Dataset:")
+    st.write(df.head(5))
 
-st.write("Sample Dataset:")
-st.write(df.head(5))
-
-st.header("Iris: Sepal Length vs Sepal Width")
-st.scatter_chart(
-    data=df,
-    x="SepalLengthCm",
-    y="SepalWidthCm",
-    color="Species",     
-    size=60,             
-    use_container_width=True
-)
+with st.expander("Visualization"):
+    st.header("Iris: Sepal Length vs Sepal Width")
+    st.scatter_chart(
+        data=df,
+        x="SepalLengthCm",
+        y="SepalWidthCm",
+        color="Species",     
+        size=60,             
+        use_container_width=True
+    )
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
